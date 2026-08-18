@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #0f172a, #172554, #312e81, #0f172a);
+    background-size: 400% 400%;
+    animation: backgroundMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 850px;
+    height: 90vh;
+    background: rgba(15, 23, 42, 0.90);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    animation: containerAppear 0.8s ease;
+}
+
+@keyframes containerAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.chat-header {
+    padding: 20px 25px;
+    background: rgba(30, 41, 59, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h1 {
+    color: white;
+    font-size: 25px;
+}
+
+.chat-header p {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.back-btn {
+    text-decoration: none;
+    font-size: 22px;
+    background: #2563eb;
+    color: white;
+    padding: 10px 13px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    background: #3b82f6;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: messageAppear 0.4s ease;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    background: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.message-content {
+    max-width: 75%;
+    background: rgba(51, 65, 85, 0.8);
+    color: white;
+    padding: 14px 17px;
+    border-radius: 5px 18px 18px 18px;
+}
+
+.message-content strong {
+    color: #60a5fa;
+}
+
+.message-content p {
+    margin-top: 7px;
+    line-height: 1.5;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background: #2563eb;
+    border-radius: 18px 5px 18px 18px;
+}
+
+.typing {
+    display: none;
+    padding: 0 25px 10px;
+    color: #94a3b8;
+    font-size: 14px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 18px;
+    background: rgba(30, 41, 59, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 14px;
+    background: #0f172a;
+    color: white;
+    font-size: 16px;
+}
+
+textarea::placeholder {
+    color: #64748b;
+}
+
+#sendBtn {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 15px;
+    background: #2563eb;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#sendBtn:hover {
+    transform: scale(1.08) rotate(-5deg);
+    background: #3b82f6;
+}
+
+#sendBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.bottom-text {
+    text-align: center;
+    padding: 8px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+    }
+
+    .chat-container {
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .message-content {
+        max-width: 85%;
+    }
+}
