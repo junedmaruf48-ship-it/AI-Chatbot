@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI ChatBot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/chatbot.css') }}">
+</head>
+
+<body>
+
+    <div class="chat-container">
+
+        <header class="chat-header">
+            <div>
+                <h1>🤖 AI ChatBot</h1>
+                <p>Welcome, {{ name }}</p>
+            </div>
+
+            <a href="/dashboard" class="back-btn">🏠</a>
+        </header>
+
+
+        <main class="chat-box" id="chatBox">
+
+            <div class="message bot-message">
+                <div class="avatar">🤖</div>
+
+                <div class="message-content">
+                    <strong>AI Assistant</strong>
+                    <p>Hello {{ name }}! 👋</p>
+                    <p>How can I help you today?</p>
+                </div>
+            </div>
+
+        </main>
+
+
+        <div class="typing" id="typing">
+            AI is typing...
+        </div>
+
+
+        <div class="input-area">
+
+            <textarea
+                id="message"
+                placeholder="Ask me anything..."
+                rows="1"></textarea>
+
+            <button id="sendBtn">
+                ➤
+            </button>
+
+        </div>
+
+
+        <div class="bottom-text">
+            Powered by Gemini AI
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+
+</body>
+</html>
